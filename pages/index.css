@@ -4,6 +4,7 @@
 .page {
     background-color: #000;
     color: #fff;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 .page__content {
@@ -25,6 +26,13 @@
 
 .line__break {
     margin-top: 41px;
+    max-width: 880px;
+}
+
+@media screen and (max-width: 919px) {
+    .line__break {
+        
+    }
 }
 
 .profile {
@@ -45,11 +53,13 @@
 .profile__info {
     display: grid;
     grid-template-areas: "title button" "description description";
-    grid-template-columns: minmax(auto, 373px) auto;
-    grid-template-rows: repeat(1fr, 1fr);
+    grid-template-columns: minmax(auto, 375px) auto; 
+    align-items: center;
+    column-gap: 14px;
 }
 
 .profile__title {
+    font-family: Inter;
     font-size: 42px;
     font-weight: 500;
     line-height: 1.2;
@@ -64,6 +74,7 @@
     height: 24px;
     width: 24px;
     grid-area: button;
+    border: 1px solid #FFFFFF
 }
 
 .profile__description {
@@ -71,7 +82,7 @@
     font-weight: 400;
     line-height: 1.2;
     letter-spacing: 0em;
-    text-align: left;
+    text-align: center;
     grid-area: description;
     margin: 0;
 }
@@ -81,10 +92,12 @@
     height: 50px;
     width: 150px;
     margin-left: auto;
+    border-radius: 2%;
+    border: 2px solid #FFFFFF
+    
 }
 
 .cards {
-    /*fonts*/
     margin-top: 51px;
 }
 
@@ -111,21 +124,23 @@
 }
 
 .card__description {
+    margin: 0;
     display: flex;
     background-color: #fff;
     color: #000;
-    padding-top: 25px;
-    padding-bottom: 25px;
     padding-left: 20px;
     padding-right: 20px;
     align-items: center;
     justify-content: space-between;
-    font-family: Inter;
+}
+
+.card__title {
+    max-width: 220px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     font-size: 24px;
     font-weight: 900;
     line-height: 1.2;
-    letter-spacing: 0em;
-    text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -141,36 +156,28 @@
 
 .footer__copyright {
     color: #545454;
+    margin-top: 67px;
+    margin-bottom: 60px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 630px) {
     .page__section {
-     
-}
+
+    }
 
     .profile {
         flex-direction: column;
     }
 
     .profile__info {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-    }
-
-    .profile__description {
-        text-align: center;
-        line-height: 1.2;
+        
     }
     
     .profile__title {
-        margin-left: 62px;
-        font-size: 22px;
-        line-height: 1.2;
-    }
-
-    .profile__add-button {
         margin: 0;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1.2;
     }
 
     .footer__copyright {
