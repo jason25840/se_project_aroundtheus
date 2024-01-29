@@ -1,0 +1,27 @@
+.header{
+    margin-top: 45px;
+}
+
+@media screen and (max-width: 635px) {
+    .header {
+        margin: 0;
+    }
+
+    .header__logo {
+        width: 126px;
+        height: 24px;
+        margin: 28px auto auto 27px;
+    }
+}
+
+.line__break {
+    margin-top: 41px;
+    border: 1px solid #545454
+}
+
+@media screen and (max-width: 635px) {
+    .line__break {
+        max-width: unset;
+        margin-top: 32px;
+    }
+}

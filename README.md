@@ -8,7 +8,7 @@
   
 **Intro**
   
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
+Around The U.S. is an interactive page that will ultimately allow users to add and remove their own photos as well as personalize their own profile and interact with other users images. The project aspect of this design uses Figma for its specification. It also contains elements and styling that allow for display on multiple common screen sizes to be fluid and maintain structure and flow. The basis of the project is HTML and CSS using BEM as a classifying system and a filing structure.   
   
 **Figma**  
   
