@@ -22,4 +22,5 @@ I hope you enjoy it as much as I am enjoying learning new skills!
 
 ![around the U.S. screenshot](./images/card-images/around%20the%20us%20page.png)
 
-![around the U.S. Video walkthrough](https://www.loom.com/share/851f61e7357c4e49ba6c594f029fb4bb?sid=31ca324a-de03-4485-b863-1bc12260aff3)
+For a video walkthrough copy and paste the link below: 
+https://www.loom.com/share/851f61e7357c4e49ba6c594f029fb4bb?sid=4abcb82b-9111-4b11-8808-72435b6b2068
