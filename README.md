@@ -20,4 +20,4 @@ The images used in this project were imported from Figma. They were optimized fo
   
 I hope you enjoy it as much as I am enjoying learning new skills!
 
-![around the U.S.](images/card-images/around the us page.png)
+![around the U.S.](/Users/72phins0prp2/code_projects/se_project_aroundtheus/images/card-images/around the us page.png)
