@@ -20,4 +20,6 @@ The images used in this project were imported from Figma. They were optimized fo
   
 I hope you enjoy it as much as I am enjoying learning new skills!
 
-![around the U.S.](/Users/72phins0prp2/code_projects/se_project_aroundtheus/images/card-images/around the us page.png)
+![around the U.S. screenshot](./images/card-images/around%20the%20us%20page.png)
+
+![around the U.S. Video walkthrough](https://www.loom.com/share/851f61e7357c4e49ba6c594f029fb4bb?sid=31ca324a-de03-4485-b863-1bc12260aff3)
