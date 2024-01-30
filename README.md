@@ -20,4 +20,3 @@ The images used in this project were imported from Figma. They were optimized fo
   
 I hope you enjoy it as much as I am enjoying learning new skills!
 
-! [aroundtheus screen image] (images/card-images/around the us page.png)
