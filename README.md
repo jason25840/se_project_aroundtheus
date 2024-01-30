@@ -20,4 +20,4 @@ The way you'll do this at work is by exporting images directly from Figma — we
   
 Good luck and have fun!
 
-/Users/72phins0prp2/code_projects/se_project_aroundtheus/images/card-images/around the us page.png
+
