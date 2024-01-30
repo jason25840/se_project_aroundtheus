@@ -16,6 +16,8 @@ Around The U.S. is an interactive page that will ultimately allow users to add a
   
 **Images**  
   
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+The images used in this project were imported from Figma. They were optimized for file size [here](https://tinypng.com/) to improve loading times. 
   
-Good luck and have fun!
+I hope you enjoy it as much as I am enjoying learning new skills!
+
+! [aroundtheus screen image] (images/card-images/around the us page.png)
