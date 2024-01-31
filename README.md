@@ -24,3 +24,5 @@ I hope you enjoy it as much as I am enjoying learning new skills!
 
 For a video walkthrough click play below:) 
 https://www.loom.com/share/851f61e7357c4e49ba6c594f029fb4bb?sid=4abcb82b-9111-4b11-8808-72435b6b2068
+
+Check out the site @ https://jason25840.github.io/se_project_aroundtheus/

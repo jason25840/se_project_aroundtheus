@@ -1,27 +1,28 @@
 .header{
+    border-bottom: 1px solid rgb(84 84 84 / 0.7);
+    height: 119px;
+    display: flex;
+}
+
+.header__logo {
     margin-top: 45px;
+    margin-bottom: 41px;
 }
 
 @media screen and (max-width: 635px) {
     .header {
-        margin: 0;
+       width: 100vw;
+       height: 84px;
     }
 
     .header__logo {
         width: 126px;
         height: 24px;
-        margin: 28px auto auto 27px;
+        margin-top: 28px;
+        margin-left: 27px;
+        margin-bottom: 32px;
     }
 }
 
-.line__break {
-    margin-top: 41px;
-    border: 1px solid #545454
-}
 
-@media screen and (max-width: 635px) {
-    .line__break {
-        max-width: unset;
-        margin-top: 32px;
-    }
-}
+

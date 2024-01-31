@@ -36,11 +36,19 @@
     grid-template-columns: minmax(auto, 375px) auto; 
     align-items: center;
     column-gap: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 415px
 }
 
 @media screen and (max-width: 779px) {
     .profile__info {
         grid-template-columns: minmax(auto, 250px) auto;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 290px;
     }
 }
 
@@ -48,11 +56,15 @@
     .profile__info {
         grid-template-columns: minmax(auto, 200px) auto;
         margin-top: 26px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 235px;
     }
 }
 
 .profile__title {
-    font-family: Inter;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     font-size: 42px;
     font-weight: 500;
     line-height: 1.2;
@@ -85,6 +97,7 @@
 .profile__edit-button:hover {
     opacity: 0.6;
     transition: opacity 1s linear 0.1s;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 635px) {
@@ -125,6 +138,7 @@
 .profile__add-button:hover {
     opacity: 0.6;
     transition: opacity 1s linear 0.1s;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 779px) {
