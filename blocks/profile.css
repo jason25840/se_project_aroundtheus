@@ -36,19 +36,12 @@
     grid-template-columns: minmax(auto, 375px) auto; 
     align-items: center;
     column-gap: 14px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
     max-width: 415px
 }
 
 @media screen and (max-width: 779px) {
     .profile__info {
         grid-template-columns: minmax(auto, 250px) auto;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        max-width: 290px;
     }
 }
 
@@ -56,10 +49,6 @@
     .profile__info {
         grid-template-columns: minmax(auto, 200px) auto;
         margin-top: 26px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        max-width: 235px;
     }
 }
 
@@ -72,17 +61,29 @@
     text-align: left;
     grid-area: title;
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 375px;
 }
 
 @media screen and (max-width: 779px) {
     .profile__title {
         font-size: 28px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 290px;
     }
 }
 
 @media screen and (max-width: 635px) {
     .profile__title {
         font-size: 22px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 232px;
     }
 }
 
@@ -116,6 +117,19 @@
     text-align: left;
     grid-area: description;
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 375px;
+}
+
+@media screen and (max-width: 779px) {
+    .profile__description {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 290px;
+    }
 }
 
 @media screen and (max-width: 635px) {
@@ -123,6 +137,10 @@
         justify-self: center;
         margin-top: 14px;
         font-size: 14px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 232px;
     }
     }
 
