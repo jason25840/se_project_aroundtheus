@@ -107,7 +107,7 @@
     color: #000;
 }
 
-modal__button {
+.modal__button {
     width: 100%;
     height: 50px;
     color: #fff;
