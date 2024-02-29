@@ -36,11 +36,12 @@
             <p class="footer__copyright">© 2024 Around The U.S.</p>
         </footer>
     </div>
+    /*profile modal*/
     <div class="modal" id="profile-edit-modal">
         <div class="modal__container">
             <button class="modal__close" id="profile-close-button"></button>
             <form class="modal__form">
-                <p class="modal__heading">Edit Profile</p>
+                <h3 class="modal__heading">Edit Profile</h3>
                 <input 
                     type="text" 
                     class="modal__title" 
@@ -51,6 +52,28 @@
                     type="text" 
                     class="modal__description" 
                     id="profile-description-input"
+                    placeholder="About Me"
+                />
+                <button class="modal__button">Save</button>
+            </form>
+        </div> 
+    </div>
+    /*picture modal*/
+    <div class="modal" id="profile-edit-modal">
+        <div class="modal__container">
+            <button class="modal__close" id="profile-close-button"></button>
+            <form class="modal__form">
+                <h3 class="modal__heading">New Place</h3>
+                <input 
+                    type="text" 
+                    class="modal__title" 
+                    id="image-title-input" 
+                    placeholder="Image URL"
+                />
+                <input 
+                    type="text" 
+                    class="modal__url" 
+                    id="image-description-input"
                     placeholder="About Me"
                 />
                 <button class="modal__button">Save</button>
