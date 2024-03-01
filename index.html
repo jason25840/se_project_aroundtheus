@@ -59,7 +59,7 @@
         </div> 
     </div>
     /*picture modal*/
-    <div class="modal" id="profile-edit-modal">
+    <div class="modal" id="add-card-modal">
         <div class="modal__container">
             <button class="modal__close" id="profile-close-button"></button>
             <form class="modal__form">
@@ -68,13 +68,13 @@
                     type="text" 
                     class="modal__title" 
                     id="image-title-input" 
-                    placeholder="Image URL"
+                    placeholder="Title"
                 />
                 <input 
                     type="text" 
-                    class="modal__url" 
-                    id="image-description-input"
-                    placeholder="About Me"
+                    class="modal__description" 
+                    id="image-url-input"
+                    placeholder="Image link"
                 />
                 <button class="modal__button">Save</button>
             </form>
@@ -87,6 +87,7 @@
             alt="" 
             class="card__image"
             />
+            <button type="button" aria-label="trash" class="card__trash-button"></button>
             <div class="card__description">
                 <h2 class="card__title"></h2>
                 <button type="button" aria-label="like" class="card__like-button"></button>
