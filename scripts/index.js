@@ -49,6 +49,7 @@ const cardListEl = document.querySelector(".cards__gallery");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const cardTitleInput = document.querySelector("#image-title-input");
+const cardUrlInput = document.querySelector("#image-url-input");
 
 /*Functions*/
 
@@ -73,6 +74,7 @@ function getCardElement(cardData) {
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
+
   return cardElement;
 }
 
@@ -87,7 +89,15 @@ function handleProfileEditSubmit(e) {
 
 function handleAddCardFormSubmit(e) {
   e.preventDefault();
+  const name = cardTitleInput.value;
+  const link = cardUrlInput.value;
+  renderCard(name, link), cardListEl;
   closeNewCardModal();
+}
+
+function renderCard(cardData) {
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
 }
 
 /*Event Listeners*/
@@ -106,10 +116,6 @@ addCardModalCloseButton.addEventListener("click", closeNewCardModal);
 
 profileCloseButton.addEventListener("click", closePopup);
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
 
-initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
-});
-
-initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
+initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
