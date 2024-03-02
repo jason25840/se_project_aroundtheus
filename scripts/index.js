@@ -27,14 +27,22 @@ const initialCards = [
 
 /*Elements*/
 
+/*profile elements*/
+
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileCloseButton = profileEditModal.querySelector(
   "#profile-close-button"
 );
+
+/*addCard elements*/
+
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardModalCloseButton = document.querySelector("#image-close-button");
 const addNewCardButton = document.querySelector(".profile__add-button");
+
+/*profile elements*/
+
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -42,6 +50,9 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const profileEditForm = profileEditModal.querySelector(".modal__form");
+
+/*cardForm elements*/
+
 const addCardFormElement = document.querySelector("#add-card-modal");
 const cardListEl = document.querySelector(".cards__gallery");
 const cardTemplate =
@@ -105,6 +116,11 @@ function closePreviewModal() {
   previewModal.classList.remove("modal_opened");
 }
 
+function renderCard(cardData) {
+  const cardElement = getCardElement(cardData);
+  cardListEl.prepend(cardElement);
+}
+
 /*Event Handlers*/
 
 function handleProfileEditSubmit(e) {
@@ -120,11 +136,6 @@ function handleAddCardFormSubmit(e) {
   const link = cardUrlInput.value;
   renderCard({ name, link });
   closeNewCardModal();
-}
-
-function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
 }
 
 /*Event Listeners*/
@@ -143,5 +154,7 @@ addCardModalCloseButton.addEventListener("click", closeNewCardModal);
 profileCloseButton.addEventListener("click", closePopup);
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardFormSubmit);
+
+/*forEach loop*/
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
