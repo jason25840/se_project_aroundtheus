@@ -158,8 +158,6 @@ addNewCardButton.addEventListener("click", () => {
   openPopup(addCardModal);
 });
 
-
-
 profileForm.addEventListener("submit", handleProfileEditSubmit);
 cardForm.addEventListener("submit", handleCardFormSubmit);
 
