@@ -115,6 +115,24 @@ function renderCard(cardData) {
 
 /*Event Handlers*/
 
+function handleEsc(e) {
+  if (e.key === "Escape") {
+    e.preventDefault();
+    closePopup(profileEditModal);
+    closePopup(addCardModal);
+    closePopup(previewModal);
+  }
+}
+
+function handleMouseClickModalClose(e) {
+  if (!e.target.classList.contains(modal) === "mousedown") {
+    e.preventDefault();
+    closePopup(profileEditModal);
+    closePopup(addCardModal);
+    closePopup(previewModal);
+  }
+}
+
 function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
@@ -133,6 +151,10 @@ function handleCardFormSubmit(e) {
 }
 
 /*Event Listeners*/
+
+window.addEventListener("keydown", handleEsc);
+
+window.addEventListener("mousedown", handleMouseClickModalClose);
 
 addCardModalCloseButton.addEventListener("click", function () {
   closePopup(addCardModal);
