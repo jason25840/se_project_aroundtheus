@@ -162,10 +162,11 @@
 }
 
 .modal__input_type_error {
-    border-bottom: #FF0000 1px;
+    border-bottom: solid red 1px;
 }
 
 .modal__error {
+    position: absolute;
     font-family: "Inter", Arial, Helvetica, sans-serif;
     font-size: 12px;
     line-height: 14px;
@@ -173,7 +174,7 @@
     color: #FF0000;
     margin-bottom: 13px;
     visibility: hidden;
-    width: 100%;
+    width: 358px;
     height: 12px;
   }
 

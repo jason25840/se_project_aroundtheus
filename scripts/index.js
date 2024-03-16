@@ -125,12 +125,10 @@ function handleEsc(e) {
 }
 
 function handleMouseClickModalClose(e) {
-  if (!e.target.classList.contains(modal) === "mousedown") {
-    e.preventDefault();
-    closePopup(profileEditModal);
-    closePopup(addCardModal);
-    closePopup(previewModal);
-  }
+  e.preventDefault();
+  closePopup(profileEditModal);
+  closePopup(addCardModal);
+  closePopup(previewModal);
 }
 
 function handleProfileEditSubmit(e) {
@@ -154,7 +152,11 @@ function handleCardFormSubmit(e) {
 
 window.addEventListener("keydown", handleEsc);
 
-window.addEventListener("mousedown", handleMouseClickModalClose);
+document.addEventListener("mousedown", function (e) {
+  if (e.target.classList.contains("modal")) {
+    handleMouseClickModalClose(e);
+  }
+});
 
 addCardModalCloseButton.addEventListener("click", function () {
   closePopup(addCardModal);
