@@ -69,10 +69,14 @@ const previewCloseButton = previewModal.querySelector(".modal__close");
 
 function closePopup(popup) {
   popup.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEsc);
+  document.removeEventListener("mousedown", handleMouseClickModalClose);
 }
 
 function openPopup(popup) {
   popup.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEsc);
+  document.addEventListener("mousedown", handleMouseClickModalClose);
 }
 
 function getCardElement(cardData) {
@@ -118,24 +122,23 @@ function renderCard(cardData) {
 function handleEsc(e) {
   if (e.key === "Escape") {
     e.preventDefault();
-    closePopup(profileEditModal);
-    closePopup(addCardModal);
-    closePopup(previewModal);
+    const modal = document.querySelector(".modal_opened");
+    closePopup(modal);
   }
 }
 
 function handleMouseClickModalClose(e) {
-  e.preventDefault();
-  closePopup(profileEditModal);
-  closePopup(addCardModal);
-  closePopup(previewModal);
+  if (e.target.classList.contains("modal")) {
+    const modal = document.querySelector(".modal_opened");
+    closePopup(modal);
+    e.preventDefault();
+  }
 }
 
 function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  e.target.reset();
   closePopup(profileEditModal);
 }
 
@@ -149,14 +152,6 @@ function handleCardFormSubmit(e) {
 }
 
 /*Event Listeners*/
-
-window.addEventListener("keydown", handleEsc);
-
-document.addEventListener("mousedown", function (e) {
-  if (e.target.classList.contains("modal")) {
-    handleMouseClickModalClose(e);
-  }
-});
 
 addCardModalCloseButton.addEventListener("click", function () {
   closePopup(addCardModal);
