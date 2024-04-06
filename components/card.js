@@ -48,3 +48,4 @@ export default class Card {
     //this._setEventListeners();
   }
 }
+console.log(this._cardImageElement);
