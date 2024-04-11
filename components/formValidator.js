@@ -10,23 +10,27 @@ class FormValidator {
   }
 
   _showInputError(formElement, inputElement) {
-    console.log("this is getting seen");
     const errorMessageElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
-    inputElement.classList.add(this._inputErrorClass);
+    //inputElement.classList.add(this._inputErrorClass);
 
-    errorMessageElement.textContent = this._inputElement.validationMessage;
-    errorMessageElement.classList.add(this._errorClass);
+    errorMessageElement.textContent = inputElement.validationMessage;
+    errorMessageElement.classList.add(this._errorClass, this._inputErrorClass);
+    console.log(this._inputErrorClass);
   }
 
-  _hideInputError(inputElement) {
+  _hideInputError(formElement, inputElement) {
     const errorMessageElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
     inputElement.classList.remove(this._inputErrorClass);
+
     errorMessageElement.textContent = "";
-    errorMessageElement.classList.remove(this._errorClass);
+    errorMessageElement.classList.remove(
+      this._errorClass,
+      this._inputErrorClass
+    );
   }
 
   _toggleButtonState() {
@@ -45,13 +49,13 @@ class FormValidator {
   }
 
   _checkInputValidity(formElement, inputElement) {
-    console.log("check in put validity for:", inputElement);
+    console.log("check input validity for:", inputElement);
     if (!inputElement.validity.valid) {
       console.log("Input is not valid. Showing error.");
       return this._showInputError(formElement, inputElement);
     }
     console.log("Input is valid. Hiding error.");
-    _hideInputError(inputElement);
+    this._hideInputError(formElement, inputElement);
   }
 
   _setEventListeners() {
@@ -73,7 +77,7 @@ class FormValidator {
     this._formElement.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-    this._setEventListeners(this._formElement);
+    this._setEventListeners();
   }
 }
 //console.log(inputList);
