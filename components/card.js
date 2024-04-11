@@ -1,4 +1,4 @@
-export default class Card {
+class Card {
   constructor(data, cardSelector, openPreviewModal) {
     this._name = data.name;
     this._link = data.link;
@@ -6,26 +6,33 @@ export default class Card {
     this._openPreviewModal = openPreviewModal;
   }
 
+  _cardSelector() {
+    return document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
+  }
+
+  getView() {
+    this._cardElement = this._getTemplate();
+    this._cardImageEl = cardElement.querySelector(".card__image");
+    this._cardTitleEl = cardElement.querySelector(".card__title");
+    this._likeButton = cardElement.querySelector(".card__like-button");
+    this._deleteButton = cardElement.querySelector(".card__trash-button");
+
+    this._cardImageEl.src = cardData.link;
+    this._cardImageEl.alt = cardData.name;
+    this._cardTitleEl.textContent = cardData.name;
+
+    this._setEventListeners();
+
+    return this._cardElement;
+  }
+
   _setEventListeners() {
-    //.card__like-button
-    this._cardElement
-      .querySelector(".card__like-button")
-      .addEventListener("click", () => {
-        this._handleLikeIcon();
-      });
-
-    //.card__trash-button
-    this._cardElement
-      .querySelector(".card__trash-button")
-      .addEventListener("Click", () => {
-        this._handleTrashButton();
-      });
-
-    this._cardImageElement
-      .querySelector("#modal__preview-card")
-      .addEventListener("click", () => {
-        this._openPreviewModal(this);
-      });
+    this._likeButton.addEventListener("click", this._handleLikeIcon);
+    this._deleteButton.addEventListener("click", this._handleTrashButton);
+    this._cardImageEl.addEventListener("click", () => this._handleImageClick);
   }
 
   _handleTrashButton() {
@@ -34,18 +41,17 @@ export default class Card {
   }
 
   _handleLikeIcon() {
+    console.log(this);
     this._cardElement
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_active");
   }
 
-  getView() {
-    this._cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
-
-    //this._setEventListeners();
+  _handleImageClick(cardData) {
+    this._cardImageElement
+      .querySelector("#modal__preview-card")
+      .openPreviewModal(cardData);
   }
 }
-console.log(this._cardImageElement);
+
+export default Card;

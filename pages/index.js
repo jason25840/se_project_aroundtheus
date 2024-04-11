@@ -1,4 +1,5 @@
-import Card from "../components/card.js";
+//import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -27,13 +28,12 @@ const initialCards = [
   },
 ];
 
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
-const card = new Card(cardData, "#card-template");
-card.getView();
+//const cardData = {
+//  name: "Yosemite Valley",
+//  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+//};
+//const Card = new Card(data, cardSelector, openPreviewModal);
+//getView();
 
 /*Elements*/
 
@@ -67,6 +67,7 @@ const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const cardTitleInput = document.querySelector("#image-title-input");
 const cardUrlInput = document.querySelector("#image-url-input");
+const cardSelector = "#card-template";
 
 /*preview elements*/
 
@@ -126,6 +127,23 @@ function renderCard(cardData) {
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
 }
+
+/*Validation*/
+
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const editFormValidator = new FormValidator(config, profileForm);
+const addCardValidator = new FormValidator(config, cardForm);
+
+editFormValidator.enableValidation();
+addCardValidator.enableValidation();
 
 /*Event Handlers*/
 
