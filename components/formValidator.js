@@ -13,7 +13,6 @@ class FormValidator {
     const errorMessageElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
-    //inputElement.classList.add(this._inputErrorClass);
 
     errorMessageElement.textContent = inputElement.validationMessage;
     errorMessageElement.classList.add(this._errorClass, this._inputErrorClass);
@@ -49,12 +48,10 @@ class FormValidator {
   }
 
   _checkInputValidity(formElement, inputElement) {
-    console.log("check input validity for:", inputElement);
     if (!inputElement.validity.valid) {
       console.log("Input is not valid. Showing error.");
       return this._showInputError(formElement, inputElement);
     }
-    console.log("Input is valid. Hiding error.");
     this._hideInputError(formElement, inputElement);
   }
 
@@ -80,5 +77,5 @@ class FormValidator {
     this._setEventListeners();
   }
 }
-//console.log(inputList);
+
 export default FormValidator;
