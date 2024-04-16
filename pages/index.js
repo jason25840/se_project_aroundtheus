@@ -89,8 +89,8 @@ function openPopup(popup) {
 // const likeButton = cardElement.querySelector(".card__like-button");
 // const deleteButton = cardElement.querySelector(".card__trash-button");
 
-// deleteButton.addEventListener("click", () => {
-//  cardElement.remove();
+ //deleteButton.addEventListener("click", () => {
+ // cardElement.remove();
 //});
 
 //likeButton.addEventListener("click", () => {
@@ -112,11 +112,15 @@ function openPreviewModal(cardData) {
   previewModalImage.src = cardData.link;
   previewModalImage.alt = cardData.name;
   previewTitle.textContent = cardData.name;
-  openPopup(previewModal);
+    openPopup(previewModal);
 }
 
 function renderCard(cardData, cardListEl) {
-  const card = new Card(cardData, "#card-template").getCardElement(cardData);
+  const card = new Card(
+    cardData,
+    "#card-template",
+    openPreviewModal
+  ).getCardElement();
   cardListEl.prepend(card);
 }
 
