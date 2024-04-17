@@ -119,7 +119,6 @@ addCardValidator.enableValidation();
 
 function handleEsc(e) {
   if (e.key === "Escape") {
-    e.preventDefault();
     const modal = document.querySelector(".modal_opened");
     closePopup(modal);
   }
@@ -129,7 +128,6 @@ function handleMouseClickModalClose(e) {
   if (e.target.classList.contains("modal")) {
     const modal = document.querySelector(".modal_opened");
     closePopup(modal);
-    e.preventDefault();
   }
 }
 

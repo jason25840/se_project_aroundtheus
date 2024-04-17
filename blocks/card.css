@@ -12,6 +12,10 @@
     object-fit: cover;
 }
 
+.card__image:hover {
+    cursor: pointer;
+}
+
 .card__description {
     margin: 0;
     display: flex;

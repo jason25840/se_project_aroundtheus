@@ -75,6 +75,12 @@
     z-index: 999;
 }
 
+.modal__close:hover {
+    opacity: 0.6;
+    transition: opacity 1s linear 0.1s;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 635px) {
     .modal__close {
         width: 26px;
@@ -196,6 +202,10 @@
     line-height: 22px;
     letter-spacing: 0em;
     text-align: center;
+}
+
+.modal__button:hover {
+    cursor: pointer;
 }
 
 @media screen and (max-width: 635px) {
