@@ -25,15 +25,6 @@ class Card {
     this._cardElement = null;
   }
 
-  _handleImageClick() {
-    console.log("it is clicking!");
-    this._cardElement
-      .querySelector(".card__image")
-      .addEventListener("click", () => {
-        this._openPreviewModal();
-      });
-  }
-
   _setEventListeners() {
     this._cardElement
       .querySelector(".card__like-button")
@@ -50,7 +41,7 @@ class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handleImageClick(this);
+        this._openPreviewModal(this);
       });
   }
 

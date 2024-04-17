@@ -82,40 +82,14 @@ function openPopup(popup) {
   document.addEventListener("mousedown", handleMouseClickModalClose);
 }
 
-//function getCardElement(cardData) {
-// const cardElement = cardTemplate.cloneNode(true);
-// const cardImageEl = cardElement.querySelector(".card__image");
-// const cardTitleEl = cardElement.querySelector(".card__title");
-// const likeButton = cardElement.querySelector(".card__like-button");
-// const deleteButton = cardElement.querySelector(".card__trash-button");
-
- //deleteButton.addEventListener("click", () => {
- // cardElement.remove();
-//});
-
-//likeButton.addEventListener("click", () => {
-//likeButton.classList.toggle("card__like-button_active");
-//});
-
-//cardImageEl.addEventListener("click", () => {
-// openPreviewModal(cardData);
-//});
-
-//cardImageEl.src = cardData.link;
-//cardImageEl.alt = cardData.name;
-//cardTitleEl.textContent = cardData.name;
-
-//return cardElement;
-//}
-
 function openPreviewModal(cardData) {
-  previewModalImage.src = cardData.link;
-  previewModalImage.alt = cardData.name;
+  previewModalImage.src = this._link;
+  previewModalImage.alt = this._name;
   previewTitle.textContent = cardData.name;
-    openPopup(previewModal);
+  openPopup(previewModal);
 }
 
-function renderCard(cardData, cardListEl) {
+function renderCard(cardData) {
   const card = new Card(
     cardData,
     "#card-template",
@@ -164,6 +138,10 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
+
+  const submitButton = e.target.querySelector(".modal__button");
+  submitButton.classList.add("modal__button_disabled");
+  submitButton.disabled = true;
 }
 
 function handleCardFormSubmit(e) {
@@ -173,6 +151,10 @@ function handleCardFormSubmit(e) {
   renderCard({ name, link });
   e.target.reset();
   closePopup(addCardModal);
+
+  const submitButton = e.target.querySelector(".modal__button");
+  submitButton.classList.add("modal__button_disabled");
+  submitButton.disabled = true;
 }
 
 /*Event Listeners*/
