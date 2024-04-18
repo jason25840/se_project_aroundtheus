@@ -73,11 +73,16 @@ class FormValidator {
   enableValidation() {
     this._formElement.addEventListener("submit", (e) => {
       e.preventDefault();
-
-      const submitButton = e.target.querySelector(".modal__button");
-      submitButton.classList.add("modal__button_disabled");
-      submitButton.disabled = true;
     });
+
+    this._formElement.addEventListener("reset", (e) => {
+      this._toggleButtonState();
+    });
+
+    //const submitButton = e.target.querySelector(".modal__button");
+    //submitButton.classList.add("modal__button_disabled");
+    //submitButton.disabled = true;
+
     this._setEventListeners();
   }
 }

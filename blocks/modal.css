@@ -205,8 +205,14 @@
     text-align: center;
 }
 
-.modal__button:hover {
+.modal__button:hover:not(:disabled) {
+    opacity: 0.8;
     cursor: pointer;
+}
+
+.modal__button_disabled {
+    opacity: 0.2;
+    cursor: default;
 }
 
 @media screen and (max-width: 635px) {
@@ -221,6 +227,5 @@
     }
 }
 
-.modal__button_disabled {
-    opacity: 20%;
-}
+
+
