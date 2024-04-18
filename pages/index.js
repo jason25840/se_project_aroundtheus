@@ -176,4 +176,4 @@ cardForm.addEventListener("submit", handleCardFormSubmit);
 
 /*forEach loop*/
 
-initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+initialCards.forEach((cardData) => renderCard(cardData));
