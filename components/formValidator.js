@@ -76,12 +76,14 @@ class FormValidator {
     });
 
     this._formElement.addEventListener("reset", (e) => {
-      this._toggleButtonState();
+      setTimeout(() => {
+        this._inputElement.forEach((inputElement) => {
+          this._hideInputError(inputElement);
+        });
+        this._toggleButtonState(this._formElement);
+      }, 0);
+      console.log(this._toggleButtonState);
     });
-
-    //const submitButton = e.target.querySelector(".modal__button");
-    //submitButton.classList.add("modal__button_disabled");
-    //submitButton.disabled = true;
 
     this._setEventListeners();
   }
