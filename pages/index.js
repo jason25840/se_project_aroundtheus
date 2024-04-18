@@ -136,10 +136,6 @@ function handleProfileEditSubmit(e) {
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
   closePopup(profileEditModal);
-
-  const submitButton = e.target.querySelector(".modal__button");
-  submitButton.classList.add("modal__button_disabled");
-  submitButton.disabled = true;
 }
 
 function handleCardFormSubmit(e) {
@@ -149,10 +145,6 @@ function handleCardFormSubmit(e) {
   renderCard({ name, link });
   e.target.reset();
   closePopup(addCardModal);
-
-  const submitButton = e.target.querySelector(".modal__button");
-  submitButton.classList.add("modal__button_disabled");
-  submitButton.disabled = true;
 }
 
 /*Event Listeners*/

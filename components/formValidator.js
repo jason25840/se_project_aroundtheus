@@ -15,7 +15,8 @@ class FormValidator {
     );
 
     errorMessageElement.textContent = inputElement.validationMessage;
-    errorMessageElement.classList.add(this._errorClass, this._inputErrorClass);
+    errorMessageElement.classList.add(this._errorClass);
+    inputElement.classList.add(this._inputErrorClass);
   }
 
   _hideInputError(inputElement) {
@@ -72,6 +73,10 @@ class FormValidator {
   enableValidation() {
     this._formElement.addEventListener("submit", (e) => {
       e.preventDefault();
+
+      const submitButton = e.target.querySelector(".modal__button");
+      submitButton.classList.add("modal__button_disabled");
+      submitButton.disabled = true;
     });
     this._setEventListeners();
   }
