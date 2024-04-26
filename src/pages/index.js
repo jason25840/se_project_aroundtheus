@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import "./index.css";
 
 const initialCards = [
   {
@@ -88,6 +89,11 @@ function openPreviewModal(cardData) {
   previewTitle.textContent = cardData.name;
   openPopup(previewModal);
 }
+
+/* Instantiations*/
+
+//const newCardPopup = new popUpWithForm("#add-card-modal", () => {});
+//newCardPopup.open();
 
 function renderCard(cardData) {
   const card = new Card(

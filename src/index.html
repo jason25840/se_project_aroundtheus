@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>Around The U.S.</title>
-    <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="page">
     <div class="page__content">
         <header class="header page__section">
-            <img src="./images/card-images/logo-vector.svg" 
+            <img src="<%=require('./images/card-images/logo-vector.svg')%>" 
             alt="Around the US Logo" 
             class="header__logo">
         </header>
         <main class="content">
         <section class="profile page__section">
-            <img src="./images/card-images/jacques-cousteau.jpg" 
+            <img src="<%=require('./images/card-images/jacques-cousteau.jpg')%>" 
             alt="avatar" 
             class="profile__avatar">   
             <div class="profile__info">
@@ -120,6 +119,5 @@
             </div>
         </li> 
     </template>
-    <script type="module"  src="./pages/index.js"></script>
 </body>
 </html>
