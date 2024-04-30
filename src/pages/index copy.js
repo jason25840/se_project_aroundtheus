@@ -182,4 +182,3 @@ cardForm.addEventListener("submit", handleCardFormSubmit);
 /*forEach loop*/
 
 initialCards.forEach((cardData) => renderCard(cardData));
-CardPreviewPopup.setEventListeners();
