@@ -53,6 +53,9 @@ export const addNewCardButton = document.querySelector("#image__add-button");
 
 export const profileForm = document.forms["profile-form"];
 export const cardForm = document.forms["card-form"];
+export const newName = document.querySelector("#modal-user-input");
+export const newJob = document.querySelector("#modal-job-input");
+export const formData = { title: newName, description: newJob };
 
 /*card elements*/
 
@@ -71,6 +74,15 @@ export const previewModalImage = document.querySelector(
 export const previewTitle = previewModal.querySelector("#preview-title");
 export const previewCloseButton = previewModal.querySelector(".modal__close");
 
+export const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
 export const selectors = {
   cardSection: ".cards__gallery",
   cardTemplate: "#card-template",
@@ -78,9 +90,4 @@ export const selectors = {
   previewModal: "#modal__preview-card",
   previewImage: "modal__preview-image",
   addCardModal: "#add-card-modal",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
 };
