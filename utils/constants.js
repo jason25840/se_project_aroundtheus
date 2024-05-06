@@ -53,8 +53,8 @@ export const addNewCardButton = document.querySelector("#image__add-button");
 
 export const profileForm = document.forms["profile-form"];
 export const cardForm = document.forms["card-form"];
-export const newName = document.querySelector("#modal-user-input");
-export const newJob = document.querySelector("#modal-job-input");
+export const newName = document.querySelector("#profile-title-input");
+export const newJob = document.querySelector("#profile-description-input");
 export const formData = { title: newName, description: newJob };
 
 /*card elements*/

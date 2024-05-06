@@ -8,7 +8,6 @@ export default class PopupWithForm extends Popup {
   }
 
   close() {
-    this.popupForm.reset();
     super.close();
   }
 
@@ -18,6 +17,7 @@ export default class PopupWithForm extends Popup {
 
     inputs.forEach((input) => {
       inputItems[input.name] = input.value;
+      inputItems[input.job] = input.value;
     });
     return inputItems;
   }
@@ -25,9 +25,8 @@ export default class PopupWithForm extends Popup {
   setEventListeners() {
     super.setEventListeners();
     this._popupForm.addEventListener("submit", (e) => {
-      e.preventDefault();
+      //e.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      this.close();
     });
   }
 }
