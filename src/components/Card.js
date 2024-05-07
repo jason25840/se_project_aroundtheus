@@ -41,7 +41,7 @@ class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._openPreviewModal(this._name, this._link);
+        this._openPreviewModal({ name: this._name, link: this._link });
       });
   }
 

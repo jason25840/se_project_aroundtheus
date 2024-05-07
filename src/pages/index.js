@@ -3,11 +3,10 @@
 import "./index.css";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-//import Popup from "../components/Popup.js";
+import Popup from "../components/Popup.js";
 import PopupWithForm from "../components/popupWithForm.js";
-//import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-//import { initialCards, config, selectors } from "../../utils/constants.js";
 import Section from "../components/Section.js";
 import {
   initialCards,
@@ -15,29 +14,19 @@ import {
   config,
   profileForm,
   cardForm,
-  addCardModalCloseButton,
-  profileCloseButton,
-  previewCloseButton,
+  cardTitleInput,
+  cardUrlInput,
   profileEditButton,
   addNewCardButton,
 } from "../../utils/constants.js";
 
 /*Functions*/
 
-function openPreviewModal(cardData) {
-  previewModalImage.src = this._link;
-  previewModalImage.alt = this._name;
-  previewTitle.textContent = cardData.name;
-  openPopup(previewModal);
+function openPreviewModal(data) {
+  previewImagePopup.open(data);
 }
 
 /* Instantiations*/
-
-//const profileFormValidator = new FormValidator(options, profileFormElement);
-//profileFormValidator.enableValidation();
-
-//const addCardFormValidator = new FormValidator(options, addCardFormElement);
-//addCardFormValidator.enableValidation();
 
 const cardSection = new Section(
   { items: initialCards, renderer: renderCard },
@@ -52,108 +41,54 @@ function renderCard(cardData) {
     openPreviewModal
   ).getCardElement();
   cardSection.addItem(card);
-  //cardListEl.prepend(card);
 }
 
-const userInfo = new UserInfo({
-  nameSelector: "#profile-title",
-  jobSelector: "#profile-description",
-});
-//const { description, title } = userInfo.getUserInfo();
-//formData.description.value = description;
-//formData.title.value = title;
-
+const userInfo = new UserInfo(".profile__title", ".profile__description");
 const profileEditForm = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit
 );
-profileEditForm.setEventListeners();
+const cardEditForm = new PopupWithForm("#add-card-modal", handleCardFormSubmit);
+const previewImagePopup = new PopupWithImage("#modal__preview-card");
 
 /*Validation*/
 
 const editFormValidator = new FormValidator(config, profileForm);
 const addCardValidator = new FormValidator(config, cardForm);
 
-editFormValidator.enableValidation();
-addCardValidator.enableValidation();
-
 /*Event Handlers*/
 
-function handleEsc(e) {
-  if (e.key === "Escape") {
-    const modal = document.querySelector(".modal_opened");
-    closePopup(modal);
-  }
-}
-
-//function handleMouseClickModalClose(e) {
-//  if (e.target.classList.contains("modal")) {
-//    const modal = document.querySelector(".modal_opened");
-//   ;
-// }
-//}
-
 function handleProfileEditSubmit(inputItems) {
-  userInfo.setUserInfo({
-    name: inputItems["#profile-title"],
-    job: inputItems["#profile-description"],
-  });
-  console.log(inputItems);
-
+  userInfo.setUserInfo(inputItems);
   profileEditForm.close();
-  return userInfo;
-  //profileEditForm.reset();
-  //e.preventDefault();
-  //profileTitle.textContent = profileTitleInput.value;
-  //profileDescription.textContent = profileDescriptionInput.value;
-  //closePopup(profileEditModal);
 }
 
-function handleCardFormSubmit(e) {
-  e.preventDefault();
+function handleCardFormSubmit() {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderCard({ name, link });
-  e.target.reset();
-  closePopup(addCardModal);
+  cardEditForm.close();
+  //cardEditForm.reset();
 }
 
 /*Event Listeners*/
 
-addCardModalCloseButton.addEventListener("click", function () {
-  closePopup(addCardModal);
-});
-
-profileCloseButton.addEventListener("click", function () {
-  closePopup(profileEditModal);
-});
-
-previewCloseButton.addEventListener("click", function () {
-  closePopup(previewModal);
-});
-
 profileEditButton.addEventListener("click", () => {
-  //FormValidator["#profile-form"]
   profileEditForm.open();
   userInfo.getUserInfo();
-  //profileTitleInput.value = profileTitle.textContent;
-  //profileDescriptionInput.value = profileDescription.textContent;
-  //openPopup(profileEditModal);
 });
 
 addNewCardButton.addEventListener("click", () => {
-  openPopup(addCardModal);
+  cardEditForm.open();
 });
 
-//profileForm.addEventListener("submit", handleProfileEditSubmit);
-cardForm.addEventListener("submit", handleCardFormSubmit);
+profileEditForm.setEventListeners();
+cardEditForm.setEventListeners();
+previewImagePopup.setEventListeners();
 
-/*forEach loop*/
-
-//initialCards.forEach((cardData) => renderCard(cardData));
-
-//Initialize all my instantiations
+//Initialization
 
 cardSection.renderItems(initialCards);
-//CardPreviewPopup.setEventListeners();
-// All the rest
+editFormValidator.enableValidation();
+addCardValidator.enableValidation();
+
