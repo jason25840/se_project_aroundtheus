@@ -37,7 +37,6 @@ function renderCard(cardData) {
   const card = new Card(
     cardData,
     selectors.cardTemplate,
-    //"#card-template",
     openPreviewModal
   ).getCardElement();
   cardSection.addItem(card);
@@ -68,7 +67,6 @@ function handleCardFormSubmit() {
   const link = cardUrlInput.value;
   renderCard({ name, link });
   cardEditForm.close();
-  //cardEditForm.reset();
 }
 
 /*Event Listeners*/
