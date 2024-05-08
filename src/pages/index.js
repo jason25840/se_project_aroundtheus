@@ -3,8 +3,7 @@
 import "./index.css";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import Popup from "../components/Popup.js";
-import PopupWithForm from "../components/popupWithForm.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
@@ -14,10 +13,10 @@ import {
   config,
   profileForm,
   cardForm,
-  cardTitleInput,
-  cardUrlInput,
   profileEditButton,
   addNewCardButton,
+  profileTitleInput,
+  profileDescriptionInput,
 } from "../../utils/constants.js";
 
 /*Functions*/
@@ -62,18 +61,19 @@ function handleProfileEditSubmit(inputItems) {
   profileEditForm.close();
 }
 
-function handleCardFormSubmit() {
-  const name = cardTitleInput.value;
-  const link = cardUrlInput.value;
-  renderCard({ name, link });
+function handleCardFormSubmit(data) {
+  renderCard({ name: data["image-title"], link: data["image-url"] });
   cardEditForm.close();
+  addCardValidator.resetValidation();
 }
 
 /*Event Listeners*/
 
 profileEditButton.addEventListener("click", () => {
   profileEditForm.open();
-  userInfo.getUserInfo();
+  const userData = userInfo.getUserInfo();
+  profileTitleInput.value = userData.name;
+  profileDescriptionInput.value = userData.description;
 });
 
 addNewCardButton.addEventListener("click", () => {

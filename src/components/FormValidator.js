@@ -70,21 +70,15 @@ class FormValidator {
     });
   }
 
+  resetValidation() {
+    this._formElement.reset();
+    this._toggleButtonState();
+  }
+
   enableValidation() {
     this._formElement.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-
-    this._formElement.addEventListener("reset", (e) => {
-      setTimeout(() => {
-        this._inputElement.forEach((inputElement) => {
-          this._hideInputError(inputElement);
-        });
-        this._toggleButtonState(this._formElement);
-      }, 0);
-      console.log(this._toggleButtonState);
-    });
-
     this._setEventListeners();
   }
 }
