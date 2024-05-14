@@ -1,6 +1,7 @@
 //Imports
 
 import "./index.css";
+import Api from "../components/Api.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
@@ -27,10 +28,42 @@ function openPreviewModal(data) {
 
 /* Instantiations*/
 
-const cardSection = new Section(
-  { items: initialCards, renderer: renderCard },
-  ".cards__gallery"
-);
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "d5d1d874-a161-48bd-b3b4-ae8e38400ed9",
+    "Content-Type": "application/json",
+  },
+});
+
+let cardSection;
+
+api
+  .getUserInfo()
+  .then((res) => {
+    userInfo.setUserInfo(res.name, res.about);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+api
+  .getInitialCards()
+  .then((res) => {
+    cardSection = new Section(
+      { items: initialCards, renderer: renderCard },
+      ".cards__gallery"
+    );
+    cardSection.renderItems();
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+//const cardSection = new Section(
+// { items: initialCards, renderer: renderCard },
+// ".cards__gallery"
+//);
 
 function renderCard(cardData) {
   const card = new Card(
@@ -57,10 +90,22 @@ const addCardValidator = new FormValidator(config, cardForm);
 /*Event Handlers*/
 
 function handleProfileEditSubmit(inputItems) {
-  userInfo.setUserInfo(inputItems);
-  profileEditForm.close();
+  profileEditForm.renderLoading(true);
+  api
+    .userProfileInfo(inputItems.name, inputItems.description)
+    .then((res) => {
+      userInfo.setUserInfo(res.name, res.about);
+      profileEditForm.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      profileEditForm.renderLoading(false);
+    });
 }
-
+  //userInfo.setUserInfo(inputItems);
+  //profileEditForm.close();
 function handleCardFormSubmit(data) {
   renderCard({ name: data["image-title"], link: data["image-url"] });
   cardEditForm.close();
@@ -86,7 +131,7 @@ previewImagePopup.setEventListeners();
 
 //Initialization
 
-cardSection.renderItems(initialCards);
+//cardSection.renderItems(initialCards);
 editFormValidator.enableValidation();
 addCardValidator.enableValidation();
 
