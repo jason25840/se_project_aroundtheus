@@ -35,5 +35,16 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
+  addNewCard(cardData) {
+    return fetch(`${this.server}/cards`, {
+      method: "POST",
+      headers: this.headers,
+      body: JSON.stringify({
+        name: cardData.name.value,
+        link: cardData.link.value,
+      }),
+    }).then(this._checkResponse);
+  }
+
   // other methods for working with the API
 }

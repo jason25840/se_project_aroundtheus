@@ -41,7 +41,7 @@ let cardSection;
 api
   .getUserInfo()
   .then((res) => {
-    userInfo.setUserInfo(res.name, res.about);
+    userInfo.setUserInfo(res);
   })
   .catch((err) => {
     console.log(err);
@@ -94,7 +94,8 @@ function handleProfileEditSubmit(inputItems) {
   api
     .userProfileInfo(inputItems.name, inputItems.description)
     .then((res) => {
-      userInfo.setUserInfo(res.name, res.about);
+      console.log(res);
+      userInfo.setUserInfo(res);
       profileEditForm.close();
     })
     .catch((err) => {
@@ -104,12 +105,26 @@ function handleProfileEditSubmit(inputItems) {
       profileEditForm.renderLoading(false);
     });
 }
-  //userInfo.setUserInfo(inputItems);
-  //profileEditForm.close();
+//userInfo.setUserInfo(inputItems);
+//profileEditForm.close();
+
 function handleCardFormSubmit(data) {
-  renderCard({ name: data["image-title"], link: data["image-url"] });
-  cardEditForm.close();
-  addCardValidator.resetValidation();
+  cardEditForm.renderLoading(true);
+  api
+    .addNewCard(data)
+    .then((res) => {
+      console.log(res);
+      cardSection.addItem(res);
+      cardEditForm.close();
+      addCardValidator.resetValidation();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      cardEditForm.renderLoading(false);
+    });
+  //renderCard({ name: data["image-title"], link: data["image-url"] });
 }
 
 /*Event Listeners*/
