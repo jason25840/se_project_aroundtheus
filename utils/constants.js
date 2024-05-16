@@ -65,9 +65,7 @@ export const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 export const cardTitleInput = document.querySelector("#image-title-input");
 export const cardUrlInput = document.querySelector("#image-url-input");
-//export const cardDeleteButton = deleteCardForm.querySelector(
-  ".modal-delete-button"
-//);
+export const cardDeleteButton = deleteCardForm.querySelector(".modal-delete-button");
 
 /*preview elements*/
 
