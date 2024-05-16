@@ -1,7 +1,16 @@
 class Card {
-  constructor(cardData, cardSelector, openPreviewModal) {
+  constructor(
+    cardData,
+    cardSelector,
+    openPreviewModal,
+    handleDeleteClick
+    //handleLikeClick
+  ) {
     this._name = cardData.name;
     this._link = cardData.link;
+    this.id = cardData.id;
+    this._handleDeleteClick = handleDeleteClick;
+    //this._handleLikeClick = handleLikeClick;
     this._cardSelector = cardSelector;
     this._openPreviewModal = openPreviewModal;
   }
@@ -35,7 +44,7 @@ class Card {
     this._cardElement
       .querySelector(".card__trash-button")
       .addEventListener("click", () => {
-        this._handleTrashButton();
+        this._handleDeleteClick(this);
       });
 
     this._cardElement

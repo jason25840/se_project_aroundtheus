@@ -36,7 +36,7 @@
         </footer>
     </div>
 
-    <!--profile modal-->
+    <!--Profile Modal-->
     <div class="modal" id="profile-edit-modal">
         <div class="modal__container">
             <button class="modal__close" id="profile-modal__close"></button>
@@ -69,7 +69,7 @@
         </div> 
     </div>
 
-    <!--image modal-->
+    <!-- Add Card Modal-->
     <div class="modal" id="add-card-modal">
         <div class="modal__container">
             <button class="modal__close" id="Image-modal__close"></button>
@@ -78,7 +78,7 @@
                 <input 
                     type="text" 
                     class="modal__input modal__title"
-                    name="image-title" 
+                    name="name" 
                     id="image-title-input" 
                     placeholder="Title"
                     minlength="1"
@@ -89,7 +89,7 @@
                 <input 
                     type="url" 
                     class="modal__input modal__description"
-                    name="image-url" 
+                    name="link" 
                     id="image-url-input"
                     placeholder="Image link"
                     required
@@ -99,8 +99,21 @@
             </form>
         </div> 
     </div>
+
+    <!--Delete Card Modal-->
+    <div class="modal" id="delete-card-modal">
+        <div class="modal__container modal__delete_card">
+          <form class="modal__form" name= "delete-card-form" id= "modal__delete-form">
+            <h3 class="modal__heading modal_delete-card-heading">
+              Are you sure?
+            </h3>
+            <button class="modal__close" id="delete-close-button" type="button"></button>
+            <button class="modal__button modal__button_delete" id="modal-delete-button" type ="submit">Yes</button>
+          </form>
+        </div>
+      </div>
     
-    <!--image-preview-modal-->
+    <!--Image-Preview-Modal-->
     <div class="modal" id="modal__preview-card">
         <div class="modal__preview-container">
             <button class="modal__close" id="preview-modal__close"></button>
