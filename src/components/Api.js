@@ -46,5 +46,10 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  // other methods for working with the API
+  deleteCard(cardId) {
+    return fetch(`${this.server}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this.headers,
+    }).then(this._checkResponse);
+  }
 }

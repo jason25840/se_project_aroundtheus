@@ -3,7 +3,7 @@ import PopUp from "./Popup";
 export default class PopUpWithConfirm extends PopUp {
   constructor(popUpSelector) {
     super(popUpSelector);
-    this._popUpFormSubmit = this._popupElement.querySelector(".modal__button");
+    this._popUpForm = this._popupElement.querySelector(".modal__form");
   }
 
   handleDelete(handleDeleteSubmit) {
@@ -12,7 +12,7 @@ export default class PopUpWithConfirm extends PopUp {
 
   setEventListeners() {
     super.setEventListeners();
-    this._popUpFormSubmit.addEventListener("submit", (evt) => {
+    this._popUpForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleDeleteSubmit();
     });

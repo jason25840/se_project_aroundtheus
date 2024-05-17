@@ -66,8 +66,8 @@ function renderCard(cardData) {
     cardData,
     selectors.cardTemplate,
     openPreviewModal,
-    handleCardDeleteClick,
-    handleLikeClick
+    handleCardDeleteClick
+    //handleLikeClick
   ).getCardElement();
   cardSection.addItem(card);
 }
@@ -85,6 +85,7 @@ const confirmDeletePopup = new PopupWithConfirm("#delete-card-modal");
 
 const editFormValidator = new FormValidator(config, profileForm);
 const addCardValidator = new FormValidator(config, cardForm);
+const deleteCardValidator = new FormValidator(config, deleteCardForm);
 
 /*Event Handlers*/
 
@@ -110,8 +111,9 @@ function handleCardFormSubmit(data) {
     .addNewCard(data.name, data.link)
     .then((res) => {
       console.log(res);
-      const card = new Card(res, selectors.cardTemplate, openPreviewModal);
-      cardSection.addItem(card.getCardElement());
+      renderCard(res);
+      //const card = new Card(res, selectors.cardTemplate, openPreviewModal, handleCardDeleteClick).getCardElement(); );
+      //cardSection.addItem(card.getCardElement());
       cardEditForm.close();
       addCardValidator.resetValidation();
     })
@@ -123,31 +125,31 @@ function handleCardFormSubmit(data) {
     });
 }
 
-function handleLikeClick(card) {
-  console.log(card);
-  if (card.isLiked) {
-    api
-      .dislikeCard(card._id)
-      .then(() => {
-        card.handleLikeButton();
-        card.isLiked = false;
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-  if (!card.isLiked) {
-    api
-      .likeCard(card._id)
-      .then(() => {
-        card.handleLikeButton();
-        card.isLiked = true;
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-}
+//function handleLikeClick(card) {
+//  console.log(card);
+//  if (card.isLiked) {
+//    api
+//      .dislikeCard(card._id)
+//      .then(() => {
+//        card.handleLikeButton();
+//        card.isLiked = false;
+//      })
+//      .catch((err) => {
+//        console.error(err);
+//      });
+//  }
+//  if (!card.isLiked) {
+//   api
+//      .likeCard(card._id)
+//      .then(() => {
+//       card.handleLikeButton();
+//       card.isLiked = true;
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+// }
+//}
 
 function handleCardDeleteClick(card) {
   console.log(card);
@@ -188,4 +190,5 @@ confirmDeletePopup.setEventListeners();
 //cardSection.renderItems(initialCards);
 editFormValidator.enableValidation();
 addCardValidator.enableValidation();
+deleteCardValidator.enableValidation();
 
