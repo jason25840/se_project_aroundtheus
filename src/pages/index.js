@@ -66,8 +66,8 @@ function renderCard(cardData) {
     cardData,
     selectors.cardTemplate,
     openPreviewModal,
-    handleCardDeleteClick
-    //handleLikeClick
+    handleCardDeleteClick,
+    handleLikeClick
   ).getCardElement();
   cardSection.addItem(card);
 }
@@ -110,10 +110,7 @@ function handleCardFormSubmit(data) {
   api
     .addNewCard(data.name, data.link)
     .then((res) => {
-      console.log(res);
       renderCard(res);
-      //const card = new Card(res, selectors.cardTemplate, openPreviewModal, handleCardDeleteClick).getCardElement(); );
-      //cardSection.addItem(card.getCardElement());
       cardEditForm.close();
       addCardValidator.resetValidation();
     })
@@ -125,31 +122,31 @@ function handleCardFormSubmit(data) {
     });
 }
 
-//function handleLikeClick(card) {
-//  console.log(card);
-//  if (card.isLiked) {
-//    api
-//      .dislikeCard(card._id)
-//      .then(() => {
-//        card.handleLikeButton();
-//        card.isLiked = false;
-//      })
-//      .catch((err) => {
-//        console.error(err);
-//      });
-//  }
-//  if (!card.isLiked) {
-//   api
-//      .likeCard(card._id)
-//      .then(() => {
-//       card.handleLikeButton();
-//       card.isLiked = true;
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//     });
-// }
-//}
+function handleLikeClick(card) {
+  console.log(card);
+  if (card.isLiked) {
+    api
+      .dislikeCard(card._id)
+      .then(() => {
+        card.handleLikeButton();
+        card.isLiked = false;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+  if (!card.isLiked) {
+    api
+      .likeCard(card._id)
+      .then(() => {
+        card.handleLikeButton();
+        card.isLiked = true;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+}
 
 function handleCardDeleteClick(card) {
   console.log(card);

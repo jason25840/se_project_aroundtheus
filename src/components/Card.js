@@ -3,15 +3,15 @@ class Card {
     cardData,
     cardSelector,
     openPreviewModal,
-    handleDeleteClick
-    //handleLikeClick
+    handleDeleteClick,
+    handleLikeClick
   ) {
     this._name = cardData.name;
     this._link = cardData.link;
     this._id = cardData._id;
-    //this._isLiked = cardData._isLiked;
+    this._isLiked = cardData._isLiked;
     this._handleDeleteClick = handleDeleteClick;
-    //this._handleLikeClick = handleLikeClick;
+    this._handleLikeClick = handleLikeClick;
     this._cardSelector = cardSelector;
     this._openPreviewModal = openPreviewModal;
   }
@@ -43,7 +43,7 @@ class Card {
 
   _setEventListeners() {
     this._cardLikeButton.addEventListener("click", () => {
-      this.handleLikeButton(this);
+      this.handleLikeClick(this);
     });
 
     this._cardElement

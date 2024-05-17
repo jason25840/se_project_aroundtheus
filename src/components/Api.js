@@ -52,4 +52,22 @@ export default class Api {
       headers: this.headers,
     }).then(this._checkResponse);
   }
+
+  likeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "PUT",
+      headers: this._headers,
+    })
+      .then(this._checkResponse)
+      .then(() => console.log("Card has been liked"));
+  }
+
+  dislikeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this._headers,
+    })
+      .then(this._checkResponse)
+      .then(() => console.log("Card has been disliked"));
+  }
 }
