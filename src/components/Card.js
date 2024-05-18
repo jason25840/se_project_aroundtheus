@@ -43,7 +43,7 @@ class Card {
 
   _setEventListeners() {
     this._cardLikeButton.addEventListener("click", () => {
-      this.handleLikeClick(this);
+      this._handleLikeClick(this);
     });
 
     this._cardElement
@@ -63,12 +63,12 @@ class Card {
     this._cardElement = this._getTemplate();
     this._cardLikeButton =
       this._cardElement.querySelector(".card__like-button");
-    this._toggleLike();
-    this._setEventListeners();
 
     this._cardElement.querySelector(".card__image").src = this._link;
     this._cardElement.querySelector(".card__title").textContent = this._name;
     this._cardElement.querySelector(".card__image").alt = this.name;
+    this._toggleLike();
+    this._setEventListeners();
 
     return this._cardElement;
   }

@@ -81,6 +81,11 @@ const cardEditForm = new PopupWithForm("#add-card-modal", handleCardFormSubmit);
 const previewImagePopup = new PopupWithImage("#modal__preview-card");
 const confirmDeletePopup = new PopupWithConfirm("#delete-card-modal");
 
+//const avatarImagePopup = new PopupWithForm(
+//  "#edit-avatar-modal",
+//  handleAvatarFormSubmit
+//);
+
 /*Validation*/
 
 const editFormValidator = new FormValidator(config, profileForm);
@@ -164,6 +169,27 @@ function handleCardDeleteClick(card) {
   });
 }
 
+//function handleAvatarSubmit(data) {
+//  avatarCardPopUp.renderLoading(true);
+//
+//  api
+//    .updateUserAvatar(data.link)
+//    .then((res) => {
+//      userData.setUserAvatar(res.avatar);
+//    })
+//    .then(() => {
+ //     console.log("Avatar has been updated");
+ ///     updateAvatarValidator.disableButton();
+ //     avatarCardPopUp.close();
+//    })
+//    .catch((err) => {
+//      console.error(err);
+ //   })
+ //   .finally(() => {
+ //     avatarCardPopUp.renderLoading(false);
+//    });
+//}
+
 /*Event Listeners*/
 
 profileEditButton.addEventListener("click", () => {
@@ -181,6 +207,7 @@ profileEditForm.setEventListeners();
 cardEditForm.setEventListeners();
 previewImagePopup.setEventListeners();
 confirmDeletePopup.setEventListeners();
+//avatarImagePopup.setEventListeners();
 
 //Initialization
 

@@ -54,20 +54,20 @@ export default class Api {
   }
 
   likeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    return fetch(`${this.server}/cards/${cardId}/likes`, {
       method: "PUT",
-      headers: this._headers,
+      headers: this.headers,
     })
       .then(this._checkResponse)
       .then(() => console.log("Card has been liked"));
   }
 
   dislikeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    return fetch(`${this.server}/cards/${cardId}/likes`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: this.headers,
     })
       .then(this._checkResponse)
-      .then(() => console.log("Card has been disliked"));
+      .then(() => console.log("Card is not yet liked"));
   }
 }

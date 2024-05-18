@@ -57,6 +57,8 @@ export const deleteCardForm = document.querySelector("#modal__delete-form");
 export const newName = document.querySelector("#profile-title-input");
 export const newJob = document.querySelector("#profile-description-input");
 export const formData = { title: newName, description: newJob };
+export const avatarUpdateForm = document.forms["avatar__form"];
+
 
 /*card elements*/
 
