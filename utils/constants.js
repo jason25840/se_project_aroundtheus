@@ -53,9 +53,12 @@ export const addNewCardButton = document.querySelector("#image__add-button");
 
 export const profileForm = document.forms["profile-form"];
 export const cardForm = document.forms["card-form"];
+export const deleteCardForm = document.querySelector("#modal__delete-form");
 export const newName = document.querySelector("#profile-title-input");
 export const newJob = document.querySelector("#profile-description-input");
 export const formData = { title: newName, description: newJob };
+export const avatarUpdateForm = document.forms["avatar__form"];
+
 
 /*card elements*/
 
@@ -64,6 +67,7 @@ export const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 export const cardTitleInput = document.querySelector("#image-title-input");
 export const cardUrlInput = document.querySelector("#image-url-input");
+export const cardDeleteButton = deleteCardForm.querySelector(".modal-delete-button");
 
 /*preview elements*/
 

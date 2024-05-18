@@ -23,7 +23,7 @@
 
 .modal__container {
     width: 430px;
-    height: 330px;
+    max-height: 330px;
     position: relative;
     background-color: #fff;
     margin: auto;
@@ -225,6 +225,31 @@
         text-align: center;
         margin-top: 0;
     }
+}
+
+
+.modal-delete-button {
+    position: relative;
+    width: 358px;
+    height: 50px;
+    background: #000;
+    color: #ffffff;
+    font-family: Inter, Arial, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 21.78px;
+    margin-top: unset;
+    margin-bottom: 0;
+  }
+
+.modal-delete-button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.modal_delete-card-heading {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 
