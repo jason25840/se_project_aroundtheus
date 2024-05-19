@@ -42,6 +42,14 @@ export const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 
+/*avatar elements*/
+
+export const avatarEditButton = document.querySelector(".profile__avatar-button");
+export const avatarEditModal = document.querySelector("#edit-avatar-modal");
+export const avatarCloseButton =
+  avatarEditModal.querySelector(".modal__close");
+export const avatarLinkInput = document.querySelector("#avatar-link-input");
+
 /*addCard elements*/
 
 export const addCardModal = document.querySelector("#add-card-modal");
