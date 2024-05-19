@@ -47,7 +47,7 @@ api
   .getUserInfo()
   .then((res) => {
     userInfo.setUserInfo(res);
-    userInfo.setUserAvatar({ avatar: res.avatar });
+    userInfo.setUserAvatar(res);
   })
   .catch((err) => {
     console.log(err);
@@ -76,7 +76,7 @@ function renderCard(cardData) {
   cardSection.addItem(card);
 }
 
-const userInfo = new UserInfo(".profile__title", ".profile__description", ".profile__avatar");
+const userInfo = new UserInfo(".profile__title", ".profile__description", avatarLinkInput);
 const profileEditForm = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit
@@ -178,12 +178,12 @@ function handleAvatarFormSubmit(data) {
   avatarImagePopup.renderLoading(true);
 
   api
-    .updateAvatar(data.avatar)
+    .updateAvatar(data.link)
     .then((res) => {
       return res;
     })
     .then((res) => {
-      userData.setUserAvatar(res.avatar);
+      userInfo.setUserAvatar(res);
     })
     .then(() => {
       console.log("Avatar has been updated");
@@ -213,7 +213,7 @@ addNewCardButton.addEventListener("click", () => {
 
 avatarEditButton.addEventListener("click", () => {
   avatarImagePopup.open();
-  //avatarLinkInput.value = userData.avatar;
+  //avatarImagePopup.setInputValue(avatarLinkInput.value);
   console.log("clicked baby")
 });
 
