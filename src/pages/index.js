@@ -10,7 +10,6 @@ import PopupWithConfirm from "../components/PopupWithConfirm.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import {
-  initialCards,
   selectors,
   config,
   profileForm,
@@ -20,8 +19,6 @@ import {
   profileTitleInput,
   profileDescriptionInput,
   deleteCardForm,
-  avatarEditButton,
-  avatarLinkInput,
   avatarUpdateForm,
   avatarImage 
 } from "../../utils/constants.js";
