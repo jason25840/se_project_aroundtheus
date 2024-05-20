@@ -35,6 +35,16 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
+  updateAvatar(link) {
+    return fetch(`${this.server}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this.headers,
+      body: JSON.stringify({
+        avatar: link,
+      }),
+    }).then(this._checkResponse);
+  }
+
   addNewCard(name, link) {
     return fetch(`${this.server}/cards`, {
       method: "POST",

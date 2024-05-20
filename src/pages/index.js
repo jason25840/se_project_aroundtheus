@@ -10,7 +10,6 @@ import PopupWithConfirm from "../components/PopupWithConfirm.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import {
-  initialCards,
   selectors,
   config,
   profileForm,
@@ -20,6 +19,8 @@ import {
   profileTitleInput,
   profileDescriptionInput,
   deleteCardForm,
+  avatarUpdateForm,
+  avatarImage 
 } from "../../utils/constants.js";
 
 /*Functions*/
@@ -44,6 +45,7 @@ api
   .getUserInfo()
   .then((res) => {
     userInfo.setUserInfo(res);
+    userInfo.setUserAvatar(res);
   })
   .catch((err) => {
     console.log(err);
@@ -72,7 +74,7 @@ function renderCard(cardData) {
   cardSection.addItem(card);
 }
 
-const userInfo = new UserInfo(".profile__title", ".profile__description");
+const userInfo = new UserInfo(".profile__title", ".profile__description", avatarImage);
 const profileEditForm = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit
@@ -81,16 +83,17 @@ const cardEditForm = new PopupWithForm("#add-card-modal", handleCardFormSubmit);
 const previewImagePopup = new PopupWithImage("#modal__preview-card");
 const confirmDeletePopup = new PopupWithConfirm("#delete-card-modal");
 
-//const avatarImagePopup = new PopupWithForm(
-//  "#edit-avatar-modal",
-//  handleAvatarFormSubmit
-//);
+const avatarImagePopup = new PopupWithForm(
+  "#edit-avatar-modal",
+  handleAvatarFormSubmit
+);
 
 /*Validation*/
 
 const editFormValidator = new FormValidator(config, profileForm);
 const addCardValidator = new FormValidator(config, cardForm);
 const deleteCardValidator = new FormValidator(config, deleteCardForm);
+const avatarValidator = new FormValidator(config, avatarUpdateForm);
 
 /*Event Handlers*/
 
@@ -169,26 +172,25 @@ function handleCardDeleteClick(card) {
   });
 }
 
-//function handleAvatarSubmit(data) {
-//  avatarCardPopUp.renderLoading(true);
-//
-//  api
-//    .updateUserAvatar(data.link)
-//    .then((res) => {
-//      userData.setUserAvatar(res.avatar);
-//    })
-//    .then(() => {
- //     console.log("Avatar has been updated");
- ///     updateAvatarValidator.disableButton();
- //     avatarCardPopUp.close();
-//    })
-//    .catch((err) => {
-//      console.error(err);
- //   })
- //   .finally(() => {
- //     avatarCardPopUp.renderLoading(false);
-//    });
-//}
+function handleAvatarFormSubmit(data) {
+  avatarImagePopup.renderLoading(true);
+
+  api
+    .updateAvatar(data.link)
+    .then((res) => {
+      userInfo.setUserAvatar(res);
+    })
+    .then(() => {
+      console.log("Avatar has been updated");
+      avatarImagePopup.close();
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      avatarImagePopup.renderLoading(false);
+    });
+}
 
 /*Event Listeners*/
 
@@ -203,16 +205,20 @@ addNewCardButton.addEventListener("click", () => {
   cardEditForm.open();
 });
 
+avatarImage.addEventListener("click", () => {
+  avatarImagePopup.open();
+});
+
 profileEditForm.setEventListeners();
 cardEditForm.setEventListeners();
 previewImagePopup.setEventListeners();
 confirmDeletePopup.setEventListeners();
-//avatarImagePopup.setEventListeners();
+avatarImagePopup.setEventListeners();
 
 //Initialization
 
-//cardSection.renderItems(initialCards);
 editFormValidator.enableValidation();
 addCardValidator.enableValidation();
 deleteCardValidator.enableValidation();
+avatarValidator.enableValidation();
 

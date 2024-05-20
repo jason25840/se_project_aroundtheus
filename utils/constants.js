@@ -1,30 +1,3 @@
-export const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
-
 /*Elements*/
 
 /*profile elements*/
@@ -42,6 +15,15 @@ export const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 
+/*avatar elements*/
+
+export const avatarEditButton = document.querySelector(".profile__avatar-button");
+export const avatarEditModal = document.querySelector("#edit-avatar-modal");
+export const avatarCloseButton =
+  avatarEditModal.querySelector(".modal__close");
+export const avatarLinkInput = document.querySelector("#avatar-link-input");
+export const avatarImage = document.querySelector(".profile__avatar");
+
 /*addCard elements*/
 
 export const addCardModal = document.querySelector("#add-card-modal");
@@ -57,7 +39,7 @@ export const deleteCardForm = document.querySelector("#modal__delete-form");
 export const newName = document.querySelector("#profile-title-input");
 export const newJob = document.querySelector("#profile-description-input");
 export const formData = { title: newName, description: newJob };
-export const avatarUpdateForm = document.forms["avatar__form"];
+export const avatarUpdateForm = document.querySelector("#avatar-form");
 
 
 /*card elements*/
