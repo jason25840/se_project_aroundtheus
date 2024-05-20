@@ -49,6 +49,7 @@ export const avatarEditModal = document.querySelector("#edit-avatar-modal");
 export const avatarCloseButton =
   avatarEditModal.querySelector(".modal__close");
 export const avatarLinkInput = document.querySelector("#avatar-link-input");
+export const avatarImage = document.querySelector(".profile__avatar");
 
 /*addCard elements*/
 
@@ -65,7 +66,7 @@ export const deleteCardForm = document.querySelector("#modal__delete-form");
 export const newName = document.querySelector("#profile-title-input");
 export const newJob = document.querySelector("#profile-description-input");
 export const formData = { title: newName, description: newJob };
-export const avatarUpdateForm = document.forms["avatar__form"];
+export const avatarUpdateForm = document.forms["avatar-form"];
 
 
 /*card elements*/

@@ -23,6 +23,7 @@ import {
   avatarEditButton,
   avatarLinkInput,
   avatarUpdateForm,
+  avatarImage 
 } from "../../utils/constants.js";
 
 /*Functions*/
@@ -76,7 +77,7 @@ function renderCard(cardData) {
   cardSection.addItem(card);
 }
 
-const userInfo = new UserInfo(".profile__title", ".profile__description", avatarLinkInput);
+const userInfo = new UserInfo(".profile__title", ".profile__description", avatarImage);
 const profileEditForm = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit
@@ -180,14 +181,10 @@ function handleAvatarFormSubmit(data) {
   api
     .updateAvatar(data.link)
     .then((res) => {
-      return res;
-    })
-    .then((res) => {
       userInfo.setUserAvatar(res);
     })
     .then(() => {
       console.log("Avatar has been updated");
-      //updateAvatarValidator.disableButton();
       avatarImagePopup.close();
     })
     .catch((err) => {
@@ -211,10 +208,8 @@ addNewCardButton.addEventListener("click", () => {
   cardEditForm.open();
 });
 
-avatarEditButton.addEventListener("click", () => {
+avatarImage.addEventListener("click", () => {
   avatarImagePopup.open();
-  //avatarImagePopup.setInputValue(avatarLinkInput.value);
-  console.log("clicked baby")
 });
 
 profileEditForm.setEventListeners();

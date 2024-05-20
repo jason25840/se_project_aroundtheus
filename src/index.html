@@ -19,9 +19,7 @@
             <img src="<%=require('./images/card-images/jacques-cousteau.jpg')%>" 
             alt="avatar" 
             class="profile__avatar"> 
-            <div class="profile__avatar-overlay">
-                <button class="profile__avatar-button"></button>
-              </div> 
+                <button class="profile__avatar-button"></button> 
             </div>
             <div class="profile__info">
                 <h1 class="profile__title">Jacques Cousteau</h1> 
@@ -49,7 +47,7 @@
                 <h3 class="modal__heading">Edit Profile</h3>
                 <input 
                     type="text" 
-                    class="modal__input modal__title" 
+                    class= "modal__title" 
                     name = "name"
                     id="profile-title-input" 
                     placeholder="Name"
@@ -60,7 +58,7 @@
                 <span class="modal__error" id="profile-title-input-error"></span>
                 <input 
                     type="text" 
-                    class="modal__input modal__description" 
+                    class= "modal__description" 
                     name="description"
                     id="profile-description-input"
                     placeholder="About Me"
@@ -82,7 +80,7 @@
                 <h3 class="modal__heading">New Place</h3>
                 <input 
                     type="text" 
-                    class="modal__input modal__title"
+                    class= "modal__title"
                     name="name" 
                     id="image-title-input" 
                     placeholder="Title"
@@ -93,7 +91,7 @@
                 <span class="modal__error" id="image-title-input-error"></span>
                 <input 
                     type="url" 
-                    class="modal__input modal__description"
+                    class= "modal__description"
                     name="link" 
                     id="image-url-input"
                     placeholder="Image link"
@@ -135,12 +133,12 @@
             id="avatar-close-button"
             type="button"
           ></button>
-          <form class="modal__form" name = "avatar__form">
+          <form class="modal__form" name = "avatar__form" id ="avatar-form">
             <h3 class="modal__heading">Change Profile Picture</h3>
             <input
               type="url"
               name="link"
-              class="modal__input modal__input_type_url"
+              class= "modal__input_type_text avatar__modal_url"
               id="avatar-link-input"
               placeholder="Image Link"
               required
