@@ -17,20 +17,12 @@ export default class Popup {
 
   _handleEscClose = (e) => {
     if (e.key === "Escape") {
-<<<<<<< HEAD
-      //const modal = document.querySelector(".modal_opened");
-=======
->>>>>>> 032a3af63fe422fe5c7c326c685a0893c3f6bdee
       this.close(modal);
     }
   };
 
   _handleMouseClickModalClose(e) {
     if (e.target.classList.contains("modal")) {
-<<<<<<< HEAD
-      //const modal = document.querySelector(".modal_opened");
-=======
->>>>>>> 032a3af63fe422fe5c7c326c685a0893c3f6bdee
       this.close(modal);
     }
   }
