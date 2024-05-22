@@ -17,14 +17,12 @@ export default class Popup {
 
   _handleEscClose = (e) => {
     if (e.key === "Escape") {
-      const modal = document.querySelector(".modal_opened");
       this.close(modal);
     }
   };
 
   _handleMouseClickModalClose(e) {
     if (e.target.classList.contains("modal")) {
-      const modal = document.querySelector(".modal_opened");
       this.close(modal);
     }
   }
