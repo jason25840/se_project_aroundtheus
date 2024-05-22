@@ -55,6 +55,17 @@
     z-index: 2;
   }
 
+@media screen and (max-width: 635px) {
+    .profile__avatar {
+        margin:auto
+    }
+
+    .profile__avatar-button {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
 .profile__info {
     display: grid;
     grid-template-areas: "title button" "description description";
