@@ -21,7 +21,7 @@ import {
   deleteCardForm,
   avatarUpdateForm,
   avatarImage 
-} from "../../utils/constants.js";
+} from "../utils/constants.js";
 
 /*Functions*/
 

@@ -38,6 +38,18 @@
     z-index: -2;
   }
 
+  @media screen and (max-width: 635px) {
+    .profile__avatar-button {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .profile__avatar {
+        margin: auto;
+    }
+
+}
+
   .profile__avatar-button:hover {
     opacity: 0.3;
     z-index: 2;
