@@ -18,7 +18,7 @@ import {
   addNewCardButton,
   profileTitleInput,
   profileDescriptionInput,
-  deleteCardForm,
+  //deleteCardForm,
   avatarUpdateForm,
   avatarImage 
 } from "../utils/constants.js";
@@ -74,7 +74,7 @@ function renderCard(cardData) {
   cardSection.addItem(card);
 }
 
-const userInfo = new UserInfo(".profile__title", ".profile__description", avatarImage);
+const userInfo = new UserInfo(".profile__title", ".profile__description", ".profile__avatar");
 const profileEditForm = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit
@@ -92,7 +92,6 @@ const avatarImagePopup = new PopupWithForm(
 
 const editFormValidator = new FormValidator(config, profileForm);
 const addCardValidator = new FormValidator(config, cardForm);
-const deleteCardValidator = new FormValidator(config, deleteCardForm);
 const avatarValidator = new FormValidator(config, avatarUpdateForm);
 
 /*Event Handlers*/
@@ -219,6 +218,5 @@ avatarImagePopup.setEventListeners();
 
 editFormValidator.enableValidation();
 addCardValidator.enableValidation();
-deleteCardValidator.enableValidation();
 avatarValidator.enableValidation();
 

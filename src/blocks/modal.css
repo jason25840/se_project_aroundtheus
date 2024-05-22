@@ -209,6 +209,10 @@
     height: 12px;
   }
 
+.modal__input_type_text + #avatar-link-input-error {
+    margin-bottom: 40px;
+}
+
 .modal__error_visible {
     visibility: visible;
 }

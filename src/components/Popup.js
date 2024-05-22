@@ -17,13 +17,13 @@ export default class Popup {
 
   _handleEscClose = (e) => {
     if (e.key === "Escape") {
-      this.close(modal);
+      this.close();
     }
   };
 
   _handleMouseClickModalClose(e) {
     if (e.target.classList.contains("modal")) {
-      this.close(modal);
+      this.close();
     }
   }
 
