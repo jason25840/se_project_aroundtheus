@@ -10,23 +10,59 @@
 }
 }
 
+
 .profile__avatar {
-    width: 120px;
     height: 120px;
+    width: 120px;
     border-radius: 50%;
     object-fit: cover;
     background-position: center;
     margin-right: 24px;
+    z-index: 1;
+  }
+  
+  .profile__avatar:hover {
+    opacity: 0.3;
+  }
+  
+  .profile__avatar-button {
+    background: transparent url(../images/card-images/pen-edit.svg) center no-repeat;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    object-fit: cover;
+    background-position: center;
+    top: 90px;
+    left: 50px;
+    border: none;
+    z-index: -2;
+  }
+
+  @media screen and (max-width: 635px) {
+    .profile__avatar-button {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .profile__avatar {
+        margin: auto;
+    }
+
 }
 
-@media screen and (max-width: 779px) {
-    .profile__avatar {
-        margin-left: 20px;
-    }
-}
+  .profile__avatar-button:hover {
+    opacity: 0.3;
+    z-index: 2;
+  }
+
 @media screen and (max-width: 635px) {
     .profile__avatar {
-        margin: 0;
+        margin:auto
+    }
+
+    .profile__avatar-button {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
