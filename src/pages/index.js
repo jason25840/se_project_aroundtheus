@@ -18,9 +18,8 @@ import {
   addNewCardButton,
   profileTitleInput,
   profileDescriptionInput,
-  //deleteCardForm,
   avatarUpdateForm,
-  avatarImage 
+  avatarImage,
 } from "../utils/constants.js";
 
 /*Functions*/
@@ -74,7 +73,11 @@ function renderCard(cardData) {
   cardSection.addItem(card);
 }
 
-const userInfo = new UserInfo(".profile__title", ".profile__description", ".profile__avatar");
+const userInfo = new UserInfo(
+  ".profile__title",
+  ".profile__description",
+  ".profile__avatar"
+);
 const profileEditForm = new PopupWithForm(
   "#profile-edit-modal",
   handleProfileEditSubmit
@@ -219,4 +222,3 @@ avatarImagePopup.setEventListeners();
 editFormValidator.enableValidation();
 addCardValidator.enableValidation();
 avatarValidator.enableValidation();
-
